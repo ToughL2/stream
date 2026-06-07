@@ -2,192 +2,108 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>qTOUGH</title>
+<title>Tough Stream</title>
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Segoe UI',sans-serif;
-}
-
 body{
-    min-height:100vh;
-    background:url('https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=2000') center center/cover no-repeat fixed;
-    overflow-x:hidden;
+  margin:0;
+  font-family: Arial, sans-serif;
+  background:#0b0b0f;
+  overflow:hidden;
+  color:white;
 }
 
+/* 🔴 главный красный glow */
 body::before{
-    content:'';
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.65);
-    backdrop-filter:blur(3px);
+  content:"";
+  position:absolute;
+  width:900px;
+  height:900px;
+  background:radial-gradient(circle,
+    rgba(255,0,0,0.25),
+    transparent 60%);
+  top:-200px;
+  left:-200px;
+  filter:blur(70px);
+  z-index:0;
 }
 
+/* 🟣 второй фиолетовый glow */
+body::after{
+  content:"";
+  position:absolute;
+  width:900px;
+  height:900px;
+  background:radial-gradient(circle,
+    rgba(140,0,255,0.15),
+    transparent 60%);
+  bottom:-250px;
+  right:-250px;
+  filter:blur(90px);
+  z-index:0;
+}
+
+/* 🌫 виньетка */
+.vignette{
+  position:fixed;
+  inset:0;
+  background:radial-gradient(circle,
+    transparent 0%,
+    rgba(0,0,0,0.6) 70%,
+    rgba(0,0,0,0.95) 100%);
+  z-index:1;
+}
+
+/* центр контент */
 .container{
-    position:relative;
-    z-index:2;
-    max-width:1600px;
-    margin:auto;
-    padding:30px;
+  position:relative;
+  z-index:2;
+  text-align:center;
+  top:20vh;
 }
 
-.header{
-    text-align:center;
-    margin-bottom:25px;
-}
-
-.logo{
-    font-size:48px;
-    font-weight:700;
-    color:#fff;
-    text-shadow:0 0 25px #8f5cff;
-}
-
-.subtitle{
-    color:#ccc;
-    margin-top:10px;
-}
-
-.panel{
-    background:rgba(255,255,255,.08);
-    backdrop-filter:blur(14px);
-    border:1px solid rgba(255,255,255,.15);
-    border-radius:24px;
-    padding:20px;
-    box-shadow:0 0 40px rgba(120,80,255,.25);
-}
-
-.content{
-    display:grid;
-    grid-template-columns:2fr 1fr;
-    gap:20px;
-}
-
-.player iframe,
-.chat iframe{
-    width:100%;
-    border:none;
-    border-radius:16px;
-}
-
-.player iframe{
-    height:700px;
-}
-
-.chat iframe{
-    height:700px;
-}
-
-.buttons{
-    display:flex;
-    justify-content:center;
-    gap:15px;
-    margin-top:20px;
-    flex-wrap:wrap;
-}
-
+/* кнопки */
 .btn{
-    padding:14px 28px;
-    border-radius:14px;
-    text-decoration:none;
-    color:white;
-    font-weight:700;
-    background:linear-gradient(135deg,#7a2cff,#00bfff);
-    transition:all .3s ease;
-    box-shadow:0 0 20px rgba(122,44,255,.4);
+  display:inline-block;
+  margin:10px;
+  padding:14px 26px;
+  border-radius:14px;
+  text-decoration:none;
+  color:white;
+  font-weight:600;
+  background:linear-gradient(180deg,#ff2a2a,#a80000);
+  box-shadow:0 0 20px rgba(255,0,0,0.4);
+  transition:0.25s;
 }
 
 .btn:hover{
-    transform:translateY(-3px);
-    box-shadow:0 0 30px rgba(122,44,255,.8);
+  transform:translateY(-2px);
+  box-shadow:0 0 35px rgba(255,0,0,0.7);
 }
 
-.footer{
-    text-align:center;
-    color:#aaa;
-    margin-top:20px;
-    font-size:14px;
-}
-
-@media(max-width:1100px){
-
-.content{
-    grid-template-columns:1fr;
-}
-
-.player iframe,
-.chat iframe{
-    height:500px;
-}
-
-.logo{
-    font-size:36px;
-}
-
-}
+/* разные цвета под соцсети */
+.tg{background:linear-gradient(180deg,#2aa7ff,#0a66c2);}
+.yt{background:linear-gradient(180deg,#ff2a2a,#cc0000);}
+.tt{background:linear-gradient(180deg,#111,#444);}
+.ref{background:linear-gradient(180deg,#7a2cff,#4a00ff);}
 </style>
 </head>
 
 <body>
 
+<div class="vignette"></div>
+
 <div class="container">
 
-    <div class="header">
-        <div class="logo">qTOUGH</div>
-        <div class="subtitle">Live Stream</div>
-    </div>
+  <h1>Tough Stream</h1>
+  <p>Lineage 2 • Live Stream Hub</p>
 
-    <div class="panel">
-
-        <div class="content">
-
-            <div class="player">
-                <iframe
-                    src="https://www.youtube.com/embed/live_stream?channel=rVzZkVmvs2c"
-                    allow="autoplay; encrypted-media"
-                    allowfullscreen>
-                </iframe>
-            </div>
-
-            <div class="chat">
-                <iframe
-                    src="https://www.youtube.com/live_chat?v=rVzZkVmvs2c&embed_domain=toughw8.github.io"
-                </iframe>
-            </div>
-
-        </div>
-
-    </div>
-
-    <div class="buttons">
-
-        <a class="btn"
-           href="https://t.me/toughl2"
-           target="_blank">
-           Telegram канал
-        </a>
-
-        <a class="btn"
-           href="https://bohpts.com/register?ref=Tough"
-           target="_blank">
-           Рефералка стримера BoHpts x7
-        </a>
-
-        <a class="btn"
-           href="https://www.youtube.com/@ToughW8"
-           target="_blank">
-           YouTube
-        </a>
-
-    </div>
-
-    <div class="footer">
-        © qTOUGH Stream Page
-    </div>
+  <div>
+    <a class="btn yt" href="https://www.youtube.com/@ToughW8" target="_blank">YouTube</a>
+    <a class="btn tg" href="https://t.me/ToughL2" target="_blank">Telegram</a>
+    <a class="btn ref" href="https://bohpts.com/register?ref=Tough" target="_blank">BoHpts x7 Рефералка</a>
+    <a class="btn tt" href="https://www.tiktok.com/@qtough" target="_blank">TikTok</a>
+  </div>
 
 </div>
 
