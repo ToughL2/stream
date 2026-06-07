@@ -2,18 +2,18 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<title>Tough Stream</title>
+<title>Tough Stream Hub</title>
 
 <style>
 body{
   margin:0;
   font-family: Arial, sans-serif;
   background:#0b0b0f;
-  overflow:hidden;
   color:white;
+  overflow-x:hidden;
 }
 
-/* 🔴 главный красный glow */
+/* ===== BACKGROUND (как у референса) ===== */
 body::before{
   content:"";
   position:absolute;
@@ -28,7 +28,6 @@ body::before{
   z-index:0;
 }
 
-/* 🟣 второй фиолетовый glow */
 body::after{
   content:"";
   position:absolute;
@@ -43,7 +42,6 @@ body::after{
   z-index:0;
 }
 
-/* 🌫 виньетка */
 .vignette{
   position:fixed;
   inset:0;
@@ -54,39 +52,111 @@ body::after{
   z-index:1;
 }
 
-/* центр контент */
+/* ===== TOP ===== */
 .container{
   position:relative;
   z-index:2;
   text-align:center;
-  top:20vh;
+  padding-top:80px;
 }
 
-/* кнопки */
+h1{
+  font-size:42px;
+  margin:0;
+}
+
+p{
+  opacity:0.7;
+}
+
+/* ===== BUTTONS ===== */
 .btn{
   display:inline-block;
   margin:10px;
-  padding:14px 26px;
+  padding:14px 24px;
   border-radius:14px;
   text-decoration:none;
   color:white;
   font-weight:600;
-  background:linear-gradient(180deg,#ff2a2a,#a80000);
-  box-shadow:0 0 20px rgba(255,0,0,0.4);
   transition:0.25s;
 }
 
-.btn:hover{
-  transform:translateY(-2px);
-  box-shadow:0 0 35px rgba(255,0,0,0.7);
-}
-
-/* разные цвета под соцсети */
-.tg{background:linear-gradient(180deg,#2aa7ff,#0a66c2);}
 .yt{background:linear-gradient(180deg,#ff2a2a,#cc0000);}
+.tg{background:linear-gradient(180deg,#2aa7ff,#0a66c2);}
 .tt{background:linear-gradient(180deg,#111,#444);}
 .ref{background:linear-gradient(180deg,#7a2cff,#4a00ff);}
+
+.btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 0 25px rgba(255,0,0,0.4);
+}
+
+/* ===== STREAM ===== */
+.stream-box{
+  width:80%;
+  max-width:1000px;
+  margin:50px auto;
+  border-radius:16px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,0.08);
+  box-shadow:0 0 40px rgba(255,0,0,0.2);
+  position:relative;
+  z-index:2;
+}
+
+.yt-player{
+  width:100%;
+  height:520px;
+}
+
+/* ===== SHORTS ===== */
+.portfolio{
+  position:relative;
+  z-index:2;
+  width:85%;
+  margin:80px auto;
+  text-align:center;
+}
+
+.portfolio h2{
+  font-size:28px;
+  margin-bottom:20px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+}
+
+.card{
+  border-radius:14px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,0.08);
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 30px rgba(255,0,0,0.3);
+}
+
+.card iframe{
+  width:100%;
+  height:320px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:900px){
+  .grid{grid-template-columns:repeat(2,1fr);}
+  .yt-player{height:350px;}
+}
+
+@media(max-width:500px){
+  .grid{grid-template-columns:1fr;}
+}
 </style>
+
 </head>
 
 <body>
@@ -96,13 +166,51 @@ body::after{
 <div class="container">
 
   <h1>Tough Stream</h1>
-  <p>Lineage 2 • Live Stream Hub</p>
+  <p>Lineage 2 • Live Hub</p>
 
+  <!-- BUTTONS -->
   <div>
     <a class="btn yt" href="https://www.youtube.com/@ToughW8" target="_blank">YouTube</a>
     <a class="btn tg" href="https://t.me/ToughL2" target="_blank">Telegram</a>
-    <a class="btn ref" href="https://bohpts.com/register?ref=Tough" target="_blank">BoHpts x7 Рефералка</a>
+    <a class="btn ref" href="https://bohpts.com/register?ref=Tough" target="_blank">BoHpts x7</a>
     <a class="btn tt" href="https://www.tiktok.com/@qtough" target="_blank">TikTok</a>
+  </div>
+
+</div>
+
+<!-- ===== LIVE STREAM ===== -->
+<div class="stream-box">
+  <iframe
+    class="yt-player"
+    src="https://www.youtube.com/embed/live_stream?channel=UC_YOUR_CHANNEL_ID"
+    frameborder="0"
+    allowfullscreen>
+  </iframe>
+</div>
+
+<!-- ===== SHORTS ===== -->
+<div class="portfolio">
+
+  <h2>Shorts Portfolio</h2>
+
+  <div class="grid">
+
+    <div class="card">
+      <iframe src="https://www.youtube.com/embed/SHORTS_ID_1" allowfullscreen></iframe>
+    </div>
+
+    <div class="card">
+      <iframe src="https://www.youtube.com/embed/SHORTS_ID_2" allowfullscreen></iframe>
+    </div>
+
+    <div class="card">
+      <iframe src="https://www.youtube.com/embed/SHORTS_ID_3" allowfullscreen></iframe>
+    </div>
+
+    <div class="card">
+      <iframe src="https://www.youtube.com/embed/SHORTS_ID_4" allowfullscreen></iframe>
+    </div>
+
   </div>
 
 </div>
