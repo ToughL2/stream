@@ -91,23 +91,17 @@ p{
   box-shadow:0 0 25px rgba(255,0,0,0.4);
 }
 
-/* ===== STREAM LAYOUT ===== */
-.stream-layout{
-  width:85%;
-  margin:50px auto;
-  display:flex;
-  gap:20px;
-  position:relative;
-  z-index:2;
-}
-
-/* ===== STREAM BOX ===== */
+/* ===== STREAM ===== */
 .stream-box{
-  flex:2;
+  width:85%;
+  max-width:1000px;
+  margin:50px auto;
   border-radius:16px;
   overflow:hidden;
   border:1px solid rgba(255,255,255,0.08);
   box-shadow:0 0 40px rgba(255,0,0,0.2);
+  position:relative;
+  z-index:2;
 }
 
 /* 🔴 LIVE LABEL */
@@ -121,22 +115,7 @@ p{
   text-shadow:0 0 15px rgba(255,0,0,0.7);
 }
 
-/* iframe */
 .yt-player{
-  width:100%;
-  height:520px;
-}
-
-/* ===== CHAT ===== */
-.chat-box{
-  flex:1;
-  border-radius:16px;
-  overflow:hidden;
-  border:1px solid rgba(255,255,255,0.08);
-  box-shadow:0 0 25px rgba(140,0,255,0.15);
-}
-
-.chat-box iframe{
   width:100%;
   height:520px;
 }
@@ -180,17 +159,12 @@ p{
 
 /* ===== RESPONSIVE ===== */
 @media(max-width:900px){
-  .stream-layout{
-    flex-direction:column;
-  }
-
-  .yt-player,
-  .chat-box iframe{
-    height:350px;
-  }
-
   .grid{
     grid-template-columns:repeat(2,1fr);
+  }
+
+  .yt-player{
+    height:350px;
   }
 }
 
@@ -222,30 +196,17 @@ p{
 
 </div>
 
-<!-- STREAM + CHAT -->
-<div class="stream-layout">
+<!-- STREAM -->
+<div class="stream-box">
 
-  <!-- STREAM -->
-  <div class="stream-box">
+  <div class="live-label">🔴 LIVE STREAM</div>
 
-    <div class="live-label">🔴 LIVE STREAM</div>
-
-    <iframe
-      class="yt-player"
-      src="https://www.youtube.com/embed/live_stream?channel=UC2Jm1am3UY__oIF0yUDm9Jg"
-      frameborder="0"
-      allowfullscreen>
-    </iframe>
-
-  </div>
-
-  <!-- CHAT -->
-  <div class="chat-box">
-    <iframe
-      src="https://www.youtube.com/live_chat?v=LIVE_VIDEO_ID&embed_domain=localhost"
-      frameborder="0">
-    </iframe>
-  </div>
+  <iframe
+    class="yt-player"
+    src="https://www.youtube.com/embed/live_stream?channel=UC2Jm1am3UY__oIF0yUDm9Jg"
+    frameborder="0"
+    allowfullscreen>
+  </iframe>
 
 </div>
 
