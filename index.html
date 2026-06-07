@@ -13,7 +13,7 @@ body{
   overflow-x:hidden;
 }
 
-/* ===== BACKGROUND (как у референса) ===== */
+/* ===== BACKGROUND ===== */
 body::before{
   content:"";
   position:absolute;
@@ -52,16 +52,16 @@ body::after{
   z-index:1;
 }
 
-/* ===== TOP ===== */
+/* ===== HEADER ===== */
 .container{
   position:relative;
   z-index:2;
   text-align:center;
-  padding-top:80px;
+  padding-top:70px;
 }
 
 h1{
-  font-size:42px;
+  font-size:44px;
   margin:0;
 }
 
@@ -91,20 +91,38 @@ p{
   box-shadow:0 0 25px rgba(255,0,0,0.4);
 }
 
-/* ===== STREAM ===== */
-.stream-box{
-  width:80%;
-  max-width:1000px;
+/* ===== STREAM + CHAT ===== */
+.stream-layout{
+  width:85%;
   margin:50px auto;
-  border-radius:16px;
-  overflow:hidden;
-  border:1px solid rgba(255,255,255,0.08);
-  box-shadow:0 0 40px rgba(255,0,0,0.2);
+  display:flex;
+  gap:20px;
   position:relative;
   z-index:2;
 }
 
+.stream-box{
+  flex:2;
+  border-radius:16px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,0.08);
+  box-shadow:0 0 40px rgba(255,0,0,0.2);
+}
+
 .yt-player{
+  width:100%;
+  height:520px;
+}
+
+.chat-box{
+  flex:1;
+  border-radius:16px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,0.08);
+  box-shadow:0 0 25px rgba(140,0,255,0.15);
+}
+
+.chat-box iframe{
   width:100%;
   height:520px;
 }
@@ -148,12 +166,24 @@ p{
 
 /* ===== RESPONSIVE ===== */
 @media(max-width:900px){
-  .grid{grid-template-columns:repeat(2,1fr);}
-  .yt-player{height:350px;}
+  .stream-layout{
+    flex-direction:column;
+  }
+
+  .yt-player,
+  .chat-box iframe{
+    height:350px;
+  }
+
+  .grid{
+    grid-template-columns:repeat(2,1fr);
+  }
 }
 
 @media(max-width:500px){
-  .grid{grid-template-columns:1fr;}
+  .grid{
+    grid-template-columns:1fr;
+  }
 }
 </style>
 
@@ -163,12 +193,12 @@ p{
 
 <div class="vignette"></div>
 
+<!-- HEADER -->
 <div class="container">
 
   <h1>Tough Stream</h1>
   <p>Lineage 2 • Live Hub</p>
 
-  <!-- BUTTONS -->
   <div>
     <a class="btn yt" href="https://www.youtube.com/@ToughW8" target="_blank">YouTube</a>
     <a class="btn tg" href="https://t.me/ToughL2" target="_blank">Telegram</a>
@@ -178,37 +208,48 @@ p{
 
 </div>
 
-<!-- ===== LIVE STREAM ===== -->
-<div class="stream-box">
-  <iframe
-    class="yt-player"
-    src="https://www.youtube.com/embed/live_stream?channel=UC2Jm1am3UY__oIF0yUDm9Jg"
-    frameborder="0"
-    allowfullscreen>
-  </iframe>
+<!-- STREAM + CHAT -->
+<div class="stream-layout">
+
+  <div class="stream-box">
+    <iframe
+      class="yt-player"
+      src="https://www.youtube.com/embed/live_stream?channel=UC2Jm1am3UY__oIF0yUDm9Jg"
+      frameborder="0"
+      allowfullscreen>
+    </iframe>
+  </div>
+
+  <div class="chat-box">
+    <iframe
+      src="https://www.youtube.com/live_chat?v=LIVE_VIDEO_ID&embed_domain=localhost"
+      frameborder="0">
+    </iframe>
+  </div>
+
 </div>
 
-<!-- ===== SHORTS ===== -->
+<!-- SHORTS -->
 <div class="portfolio">
 
-  <h2>Shorts </h2>
+  <h2>Shorts Portfolio</h2>
 
   <div class="grid">
 
     <div class="card">
-      <iframe src="https://www.youtube.com/embed/Tx9MEplF2os" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/Tx9MEplF2os"></iframe>
     </div>
 
     <div class="card">
-      <iframe src="https://www.youtube.com/embed/-JzIcoWKPg0" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/-JzIcoWKPg0"></iframe>
     </div>
 
     <div class="card">
-      <iframe src="https://www.youtube.com/embed/6wuxZJdJfO4" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/6wuxZJdJfO4"></iframe>
     </div>
 
     <div class="card">
-      <iframe src="https://www.youtube.com/embed/b3kCvdzf2YI" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/b3kCvdzf2YI"></iframe>
     </div>
 
   </div>
