@@ -1,28 +1,195 @@
-.btn-stream {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 14px 30px;
-    border-radius: 14px;
-    background: linear-gradient(
-        135deg,
-        #7b2cff,
-        #00c6ff
-    );
-    color: #fff;
-    text-decoration: none;
-    font-weight: 700;
-    border: none;
-    cursor: pointer;
-    transition: all .3s ease;
-    box-shadow:
-        0 0 20px rgba(123,44,255,.5),
-        0 0 40px rgba(0,198,255,.2);
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ToughW8 Stream</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
 }
 
-.btn-stream:hover {
-    transform: translateY(-2px);
-    box-shadow:
-        0 0 30px rgba(123,44,255,.8),
-        0 0 60px rgba(0,198,255,.4);
+body{
+    min-height:100vh;
+    background:url('https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=2000') center center/cover no-repeat fixed;
+    overflow-x:hidden;
 }
+
+body::before{
+    content:'';
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.65);
+    backdrop-filter:blur(3px);
+}
+
+.container{
+    position:relative;
+    z-index:2;
+    max-width:1600px;
+    margin:auto;
+    padding:30px;
+}
+
+.header{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.logo{
+    font-size:48px;
+    font-weight:700;
+    color:#fff;
+    text-shadow:0 0 25px #8f5cff;
+}
+
+.subtitle{
+    color:#ccc;
+    margin-top:10px;
+}
+
+.panel{
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(14px);
+    border:1px solid rgba(255,255,255,.15);
+    border-radius:24px;
+    padding:20px;
+    box-shadow:0 0 40px rgba(120,80,255,.25);
+}
+
+.content{
+    display:grid;
+    grid-template-columns:2fr 1fr;
+    gap:20px;
+}
+
+.player iframe,
+.chat iframe{
+    width:100%;
+    border:none;
+    border-radius:16px;
+}
+
+.player iframe{
+    height:700px;
+}
+
+.chat iframe{
+    height:700px;
+}
+
+.buttons{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    margin-top:20px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:14px 28px;
+    border-radius:14px;
+    text-decoration:none;
+    color:white;
+    font-weight:700;
+    background:linear-gradient(135deg,#7a2cff,#00bfff);
+    transition:all .3s ease;
+    box-shadow:0 0 20px rgba(122,44,255,.4);
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 0 30px rgba(122,44,255,.8);
+}
+
+.footer{
+    text-align:center;
+    color:#aaa;
+    margin-top:20px;
+    font-size:14px;
+}
+
+@media(max-width:1100px){
+
+.content{
+    grid-template-columns:1fr;
+}
+
+.player iframe,
+.chat iframe{
+    height:500px;
+}
+
+.logo{
+    font-size:36px;
+}
+
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <div class="logo">ToughW8</div>
+        <div class="subtitle">Lineage 2 Stream</div>
+    </div>
+
+    <div class="panel">
+
+        <div class="content">
+
+            <div class="player">
+                <iframe
+                    src="https://www.youtube.com/embed/live_stream?channel=UCxxxxxxxxxxxxxxxxxxxx&autoplay=1"
+                    allow="autoplay; encrypted-media"
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+            <div class="chat">
+                <iframe
+                    src="https://www.youtube.com/live_chat?v=VIDEO_ID&embed_domain=USERNAME.github.io">
+                </iframe>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="buttons">
+
+        <a class="btn"
+           href="https://t.me/yourchannel"
+           target="_blank">
+           Telegram канал
+        </a>
+
+        <a class="btn"
+           href="https://bohpts.com/register?ref=Tough"
+           target="_blank">
+           Играть на BoHPTS
+        </a>
+
+        <a class="btn"
+           href="https://www.youtube.com/@ToughW8"
+           target="_blank">
+           YouTube
+        </a>
+
+    </div>
+
+    <div class="footer">
+        © ToughW8 Stream Page
+    </div>
+
+</div>
+
+</body>
+</html>
