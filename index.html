@@ -6,178 +6,183 @@
 <title>qTOUGH Stream Hub</title>
 
 <style>
-*{box-sizing:border-box}
+*{
+    box-sizing:border-box;
+}
 
 body{
-  margin:0;
-  font-family:Arial,sans-serif;
-  background:#07070b;
-  color:#fff;
-  min-height:100vh;
-  overflow-x:hidden;
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#07070b;
+    color:#fff;
+    min-height:100vh;
+    overflow-x:hidden;
 }
 
 body::before{
-  content:"";
-  position:fixed;
-  width:700px;
-  height:700px;
-  background:radial-gradient(circle,rgba(255,0,0,.35),transparent 65%);
-  top:-200px;
-  left:-200px;
-  filter:blur(60px);
-  z-index:-1;
+    content:"";
+    position:fixed;
+    width:700px;
+    height:700px;
+    background:radial-gradient(circle,rgba(255,0,0,.35),transparent 65%);
+    top:-200px;
+    left:-200px;
+    filter:blur(60px);
+    z-index:-1;
 }
 
 body::after{
-  content:"";
-  position:fixed;
-  width:600px;
-  height:600px;
-  background:radial-gradient(circle,rgba(120,0,255,.25),transparent 65%);
-  bottom:-180px;
-  right:-180px;
-  filter:blur(70px);
-  z-index:-1;
+    content:"";
+    position:fixed;
+    width:600px;
+    height:600px;
+    background:radial-gradient(circle,rgba(120,0,255,.25),transparent 65%);
+    bottom:-180px;
+    right:-180px;
+    filter:blur(70px);
+    z-index:-1;
 }
 
 .container{
-  width:95%;
-  max-width:1200px;
-  margin:auto;
-  padding:40px 0;
+    width:95%;
+    max-width:1200px;
+    margin:auto;
+    padding:40px 0;
 }
 
 .header{
-  text-align:center;
-  margin-bottom:30px;
+    text-align:center;
+    margin-bottom:30px;
 }
 
 .header h1{
-  font-size:46px;
-  margin:0;
-  letter-spacing:2px;
-  text-transform:uppercase;
+    font-size:46px;
+    margin:0;
+    letter-spacing:2px;
+    text-transform:uppercase;
 }
 
-.header span{color:#ff2a2a}
+.header span{
+    color:#ff2a2a;
+}
 
 .header p{
-  color:#aaa;
-  font-size:18px;
+    color:#aaa;
+    font-size:18px;
 }
 
 .main{
-  display:grid;
-  grid-template-columns:2fr 1fr;
-  gap:25px;
+    display:grid;
+    grid-template-columns:2fr 1fr;
+    gap:25px;
 }
 
 .player-box,
 .links-box,
 .shorts-section{
-  background:rgba(15,15,22,.85);
-  border:1px solid rgba(255,255,255,.08);
-  border-radius:18px;
-  padding:20px;
-  box-shadow:0 0 35px rgba(255,0,0,.12);
+    background:rgba(15,15,22,.85);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:18px;
+    padding:20px;
+    box-shadow:0 0 35px rgba(255,0,0,.12);
 }
 
 .live-title{
-  color:#ff2a2a;
-  font-size:18px;
-  font-weight:bold;
-  margin-bottom:12px;
-  letter-spacing:1px;
+    color:#ff2a2a;
+    font-size:18px;
+    font-weight:bold;
+    margin-bottom:12px;
+    letter-spacing:1px;
 }
 
 .video{
-  position:relative;
-  width:100%;
-  padding-bottom:56.25%;
-  border-radius:14px;
-  overflow:hidden;
-  background:#000;
+    position:relative;
+    width:100%;
+    padding-bottom:56.25%;
+    border-radius:14px;
+    overflow:hidden;
+    background:#000;
 }
 
 .video iframe{
-  position:absolute;
-  width:100%;
-  height:100%;
-  border:none;
+    position:absolute;
+    width:100%;
+    height:100%;
+    border:none;
 }
 
 .links-box h2{
-  margin-top:0;
-  text-align:center;
+    margin-top:0;
+    text-align:center;
 }
 
 .link{
-  display:block;
-  text-decoration:none;
-  color:white;
-  background:linear-gradient(135deg,#161620,#242436);
-  padding:15px;
-  margin:12px 0;
-  border-radius:12px;
-  font-weight:bold;
-  text-align:center;
-  transition:.25s;
-  border:1px solid rgba(255,255,255,.08);
+    display:block;
+    text-decoration:none;
+    color:#fff;
+    background:linear-gradient(135deg,#161620,#242436);
+    padding:15px;
+    margin:12px 0;
+    border-radius:12px;
+    font-weight:bold;
+    text-align:center;
+    transition:.25s;
+    border:1px solid rgba(255,255,255,.08);
 }
 
 .link:hover{
-  transform:translateY(-3px);
-  background:linear-gradient(135deg,#ff2a2a,#7a0000);
-  box-shadow:0 0 20px rgba(255,0,0,.35);
+    transform:translateY(-3px);
+    background:linear-gradient(135deg,#ff2a2a,#7a0000);
+    box-shadow:0 0 20px rgba(255,0,0,.35);
 }
 
 .shorts-section{
-  margin-top:40px;
+    margin-top:40px;
 }
 
 .shorts-title{
-  text-align:center;
-  margin-top:0;
-  margin-bottom:20px;
-  font-size:30px;
-  color:#ff2a2a;
-  text-transform:uppercase;
+    text-align:center;
+    margin-top:0;
+    margin-bottom:20px;
+    font-size:30px;
+    color:#ff2a2a;
+    text-transform:uppercase;
 }
 
 .shorts-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:20px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
 }
 
 .shorts-grid iframe{
-  width:100%;
-  height:500px;
-  border:none;
-  border-radius:14px;
-  background:#000;
+    width:100%;
+    height:500px;
+    border:none;
+    border-radius:14px;
+    background:#000;
 }
 
 .footer{
-  text-align:center;
-  margin-top:30px;
-  color:#777;
-  font-size:14px;
+    text-align:center;
+    margin-top:30px;
+    color:#777;
+    font-size:14px;
 }
 
 @media(max-width:850px){
-  .main{
-    grid-template-columns:1fr;
-  }
 
-  .header h1{
-    font-size:34px;
-  }
+    .main{
+        grid-template-columns:1fr;
+    }
 
-  .shorts-grid iframe{
-    height:460px;
-  }
+    .header h1{
+        font-size:34px;
+    }
+
+    .shorts-grid iframe{
+        height:460px;
+    }
 }
 </style>
 </head>
@@ -186,51 +191,69 @@ body::after{
 
 <div class="container">
 
-  <div class="header">
-    <h1><span>qTOUGH</span> STREAM HUB</h1>
-    <p>Логово стримерка</p>
-  </div>
-
-  <div class="main">
-
-    <div class="player-box">
-      <div class="live-title">● LIVE STREAM</div>
-
-      <div class="video">
-        <iframe 
-          src="https://www.youtube.com/embed/UCa_AKltXC5g-L-HG1eGGWuA"
-          allowfullscreen>
-        </iframe>
-      </div>
+    <div class="header">
+        <h1><span>qTOUGH</span> STREAM HUB</h1>
+        <p>Логово стримерка</p>
     </div>
 
-    <<div class="links-box">
-  <h2>Мои ссылки</h2>
+    <div class="main">
 
-  <a class="link" href="https://www.youtube.com/@qTOUGH" target="_blank">YouTube</a>
-  <a class="link" href="https://www.tiktok.com/@qtough" target="_blank">TikTok</a>
-  <a class="link" href="https://kick.com/qtough" target="_blank">Kick</a>
-  <a class="link" href="https://prime.gs/qtough" target="_blank">Prime</a>
-  <a class="link" href="https://t.me/ToughL2" target="_blank">Telegram</a>
-  <a class="link" href="https://lu4.org/" target="_blank">Lu4</a>
-</div>
+        <div class="player-box">
 
-  </div>
+            <div class="live-title">
+                ● LIVE STREAM
+            </div>
 
-  <div class="shorts-section">
-    <h2 class="shorts-title">Shorts</h2>
+            <div class="video">
+                <iframe
+                    src="https://www.youtube.com/embed/F5EKjldpBno"
+                    allowfullscreen>
+                </iframe>
+            </div>
 
-    <div class="shorts-grid">
-      <iframe src="https://www.youtube.com/embed/MVWltk1o-1M" allowfullscreen></iframe>
-      <iframe src="https://www.youtube.com/embed/B81ztwcttXg" allowfullscreen></iframe>
-      <iframe src="https://www.youtube.com/embed/Tx9MEplF2os" allowfullscreen></iframe>
-      <iframe src="https://www.youtube.com/embed/MxeAb0vrXpk" allowfullscreen></iframe>
+        </div>
+
+        <div class="links-box">
+
+            <h2>Мои ссылки</h2>
+
+            <a class="link" href="https://www.youtube.com/@qTOUGH" target="_blank">YouTube</a>
+
+            <a class="link" href="https://www.tiktok.com/@qtough" target="_blank">TikTok</a>
+
+            <a class="link" href="https://kick.com/qtough" target="_blank">Kick</a>
+
+            <a class="link" href="https://prime.gs/qtough" target="_blank">Prime</a>
+
+            <a class="link" href="https://t.me/ToughL2" target="_blank">Telegram</a>
+
+            <a class="link" href="https://lu4.org/" target="_blank">Lu4</a>
+
+        </div>
+
     </div>
-  </div>
 
-  <div class="footer">
-    © 2026 qTOUGH Stream Hub
-  </div>
+    <div class="shorts-section">
+
+        <h2 class="shorts-title">Shorts</h2>
+
+        <div class="shorts-grid">
+
+            <iframe src="https://www.youtube.com/embed/mZr2EWmtgaU" allowfullscreen></iframe>
+
+            <iframe src="https://www.youtube.com/embed/SHORT_ID_2" allowfullscreen></iframe>
+
+            <iframe src="https://www.youtube.com/embed/SHORT_ID_3" allowfullscreen></iframe>
+
+            <iframe src="https://www.youtube.com/embed/SHORT_ID_4" allowfullscreen></iframe>
+
+        </div>
+
+    </div>
+
+    <div class="footer">
+        © 2026 qTOUGH Stream Hub
+    </div>
 
 </div>
 
