@@ -2,237 +2,196 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tough Stream Hub</title>
 
 <style>
-body{
-  margin:0;
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
   font-family: Arial, sans-serif;
-  background:#0b0b0f;
-  color:white;
-  overflow-x:hidden;
+  background: #07070b;
+  color: #fff;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
-/* ===== BACKGROUND ===== */
-body::before{
-  content:"";
-  position:absolute;
-  width:900px;
-  height:900px;
-  background:radial-gradient(circle,
-    rgba(255,0,0,0.25),
-    transparent 60%);
-  top:-200px;
-  left:-200px;
-  filter:blur(70px);
-  z-index:0;
+body::before {
+  content: "";
+  position: fixed;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(255,0,0,0.35), transparent 65%);
+  top: -200px;
+  left: -200px;
+  filter: blur(60px);
+  z-index: -1;
 }
 
-body::after{
-  content:"";
-  position:absolute;
-  width:900px;
-  height:900px;
-  background:radial-gradient(circle,
-    rgba(140,0,255,0.15),
-    transparent 60%);
-  bottom:-250px;
-  right:-250px;
-  filter:blur(90px);
-  z-index:0;
+body::after {
+  content: "";
+  position: fixed;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(120,0,255,0.25), transparent 65%);
+  bottom: -180px;
+  right: -180px;
+  filter: blur(70px);
+  z-index: -1;
 }
 
-.vignette{
-  position:fixed;
-  inset:0;
-  background:radial-gradient(circle,
-    transparent 0%,
-    rgba(0,0,0,0.6) 70%,
-    rgba(0,0,0,0.95) 100%);
-  z-index:1;
+.container {
+  width: 95%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px 0;
 }
 
-/* ===== HEADER ===== */
-.container{
-  position:relative;
-  z-index:2;
-  text-align:center;
-  padding-top:70px;
+.header {
+  text-align: center;
+  margin-bottom: 30px;
 }
 
-h1{
-  font-size:44px;
-  margin:0;
+.header h1 {
+  font-size: 46px;
+  margin: 0;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
-p{
-  opacity:0.7;
+.header span {
+  color: #ff2a2a;
 }
 
-/* ===== BUTTONS ===== */
-.btn{
-  display:inline-block;
-  margin:10px;
-  padding:14px 24px;
-  border-radius:14px;
-  text-decoration:none;
-  color:white;
-  font-weight:600;
-  transition:0.25s;
+.header p {
+  color: #aaa;
+  font-size: 18px;
 }
 
-.yt{background:linear-gradient(180deg,#ff2a2a,#cc0000);}
-.tg{background:linear-gradient(180deg,#2aa7ff,#0a66c2);}
-.tt{background:linear-gradient(180deg,#111,#444);}
-.ref{background:linear-gradient(180deg,#7a2cff,#4a00ff);}
-
-.btn:hover{
-  transform:translateY(-2px);
-  box-shadow:0 0 25px rgba(255,0,0,0.4);
+.main {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 25px;
 }
 
-/* ===== STREAM ===== */
-.stream-box{
-  width:85%;
-  max-width:1000px;
-  margin:50px auto;
-  border-radius:16px;
-  overflow:hidden;
-  border:1px solid rgba(255,255,255,0.08);
-  box-shadow:0 0 40px rgba(255,0,0,0.2);
-  position:relative;
-  z-index:2;
+.player-box,
+.links-box {
+  background: rgba(15, 15, 22, 0.85);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: 0 0 35px rgba(255,0,0,0.12);
 }
 
-/* 🔴 LIVE LABEL */
-.live-label{
-  text-align:center;
-  margin-bottom:10px;
-  font-size:18px;
-  font-weight:bold;
-  letter-spacing:2px;
-  color:#ff2a2a;
-  text-shadow:0 0 15px rgba(255,0,0,0.7);
+.live-title {
+  color: #ff2a2a;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 12px;
+  letter-spacing: 1px;
 }
 
-.yt-player{
-  width:100%;
-  height:520px;
+.video {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #000;
 }
 
-/* ===== SHORTS ===== */
-.portfolio{
-  position:relative;
-  z-index:2;
-  width:85%;
-  margin:80px auto;
-  text-align:center;
+.video iframe {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: none;
 }
 
-.portfolio h2{
-  font-size:28px;
-  margin-bottom:20px;
+.links-box h2 {
+  margin-top: 0;
+  text-align: center;
 }
 
-.grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:16px;
+.link {
+  display: block;
+  text-decoration: none;
+  color: white;
+  background: linear-gradient(135deg, #161620, #242436);
+  padding: 15px;
+  margin: 12px 0;
+  border-radius: 12px;
+  font-weight: bold;
+  text-align: center;
+  transition: 0.25s;
+  border: 1px solid rgba(255,255,255,0.08);
 }
 
-.card{
-  border-radius:14px;
-  overflow:hidden;
-  border:1px solid rgba(255,255,255,0.08);
-  transition:0.3s;
+.link:hover {
+  transform: translateY(-3px);
+  background: linear-gradient(135deg, #ff2a2a, #7a0000);
+  box-shadow: 0 0 20px rgba(255,0,0,0.35);
 }
 
-.card:hover{
-  transform:scale(1.05);
-  box-shadow:0 0 30px rgba(255,0,0,0.3);
+.footer {
+  text-align: center;
+  margin-top: 30px;
+  color: #777;
+  font-size: 14px;
 }
 
-.card iframe{
-  width:100%;
-  height:320px;
-}
-
-/* ===== RESPONSIVE ===== */
-@media(max-width:900px){
-  .grid{
-    grid-template-columns:repeat(2,1fr);
+@media (max-width: 850px) {
+  .main {
+    grid-template-columns: 1fr;
   }
 
-  .yt-player{
-    height:350px;
-  }
-}
-
-@media(max-width:500px){
-  .grid{
-    grid-template-columns:1fr;
+  .header h1 {
+    font-size: 34px;
   }
 }
 </style>
-
 </head>
 
 <body>
 
-<div class="vignette"></div>
-
-<!-- HEADER -->
 <div class="container">
 
-  <h1>Tough Stream</h1>
-  <p>Lineage 2 • Live Hub</p>
-
-  <div>
-    <a class="btn yt" href="https://www.youtube.com/@ToughW8" target="_blank">YouTube</a>
-    <a class="btn tg" href="https://t.me/ToughL2" target="_blank">Telegram</a>
-    <a class="btn ref" href="https://bohpts.com/register?ref=Tough" target="_blank">BoHpts x7</a>
-    <a class="btn tt" href="https://www.tiktok.com/@qtough" target="_blank">TikTok</a>
+  <div class="header">
+    <h1><span>TOUGH</span> STREAM HUB</h1>
+    <p>Стримы, соцсети и полезные ссылки</p>
   </div>
 
-</div>
+  <div class="main">
 
-<!-- STREAM -->
-<div class="stream-box">
+    <div class="player-box">
+      <div class="live-title">● LIVE STREAM</div>
 
-  <div class="live-label">🔴 LIVE STREAM</div>
-
-  <iframe
-    class="yt-player"
-    src="https://www.youtube.com/embed/live_stream?channel=UC2Jm1am3UY__oIF0yUDm9Jg"
-    frameborder="0"
-    allowfullscreen>
-  </iframe>
-
-</div>
-
-<!-- SHORTS -->
-<div class="portfolio">
-
-  <h2>Shorts</h2>
-
-  <div class="grid">
-
-    <div class="card">
-      <iframe src="https://www.youtube.com/embed/Tx9MEplF2os"></iframe>
+      <div class="video">
+        <!-- Замени VIDEO_ID на ID своего YouTube стрима -->
+        <iframe 
+          src="https://www.youtube.com/embed/VIDEO_ID"
+          allowfullscreen>
+        </iframe>
+      </div>
     </div>
 
-    <div class="card">
-      <iframe src="https://www.youtube.com/embed/-JzIcoWKPg0"></iframe>
+    <div class="links-box">
+      <h2>Мои ссылки</h2>
+
+      <a class="link" href="https://www.tiktok.com/@qtough" target="_blank">TikTok</a>
+      <a class="link" href="https://kick.com/ТВОЙ_НИК" target="_blank">Kick</a>
+      <a class="link" href="https://primegaming.com/" target="_blank">Prime</a>
+      <a class="link" href="https://t.me/ToughL2" target="_blank">Telegram</a>
+      <a class="link" href="https://lu4.com/" target="_blank">Lu4</a>
+
     </div>
 
-    <div class="card">
-      <iframe src="https://www.youtube.com/embed/6wuxZJdJfO4"></iframe>
-    </div>
+  </div>
 
-    <div class="card">
-      <iframe src="https://www.youtube.com/embed/b3kCvdzf2YI"></iframe>
-    </div>
-
+  <div class="footer">
+    © 2026 Tough Stream Hub
   </div>
 
 </div>
