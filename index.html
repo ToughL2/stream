@@ -45,7 +45,7 @@ body::after{
 
 .container{
     width:95%;
-    max-width:1200px;
+    max-width:1400px;
     margin:auto;
     padding:40px 0;
 }
@@ -91,8 +91,21 @@ body::after{
     color:#ff2a2a;
     font-size:18px;
     font-weight:bold;
-    margin-bottom:12px;
+    margin-bottom:20px;
     letter-spacing:1px;
+}
+
+.streams-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+.stream-name{
+    text-align:center;
+    color:#ff2a2a;
+    margin:0 0 12px;
+    font-size:18px;
 }
 
 .video{
@@ -176,6 +189,10 @@ body::after{
         grid-template-columns:1fr;
     }
 
+    .streams-grid{
+        grid-template-columns:1fr;
+    }
+
     .header h1{
         font-size:34px;
     }
@@ -193,7 +210,7 @@ body::after{
 
     <div class="header">
         <h1><span>qTOUGH</span> STREAM HUB</h1>
-        <p>Логово стримерка</p>
+        <p>Логово стримера</p>
     </div>
 
     <div class="main">
@@ -201,14 +218,43 @@ body::after{
         <div class="player-box">
 
             <div class="live-title">
-                ● LIVE STREAM
+                ● LIVE STREAMS
             </div>
 
-            <div class="video">
-                <iframe
-                    src="https://www.youtube.com/embed/UCa4d7MRM1kn7jNw0qp5BgKQ"
-                    allowfullscreen>
-                </iframe>
+            <div class="streams-grid">
+
+                <div>
+
+                    <h3 class="stream-name">
+                        YouTube Live
+                    </h3>
+
+                    <div class="video">
+                        <iframe
+                            src="https://www.youtube.com/embed/live_stream?channel=UCa4d7MRM1kn7jNw0qp5BgKQ"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+
+                </div>
+
+                <div>
+
+                    <h3 class="stream-name">
+                        Prime Stream
+                    </h3>
+
+                    <div class="video">
+                        <iframe
+                            src="https://prime.gs/qtough"
+                            allow="autoplay; fullscreen; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+
+                </div>
+
             </div>
 
         </div>
